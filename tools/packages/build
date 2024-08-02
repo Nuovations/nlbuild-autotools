@@ -82,6 +82,16 @@ verbose() {
 }
 
 #
+# verbose_progress <action> [ <...> ]
+#
+# Display to standard error the specified progress action and optional
+# action arguments, separated by white space.
+#
+verbose_progress() {
+    printf "  %-13s %s\n" "${1}" "${@:2}" >&2
+}
+
+#
 # separator
 #
 # Display to standard error a log separator.
