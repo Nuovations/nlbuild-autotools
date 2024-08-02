@@ -1,3 +1,19 @@
+1.7.6 (2024-08-02)
+
+        * Updated the following autoconf archive M4 macro files:
+
+          * ax_compare_version.m4
+          * ax_cxx_compile_stdcxx.m4
+          * ax_cxx_compile_stdcxx_0x.m4
+          * ax_cxx_compile_stdcxx_11.m4
+          * ax_cxx_compile_stdcxx_14.m4
+          * ax_jni_include_dir.m4
+          * ax_pthread.m4
+
+        * Added the following autoconf archive M4 macro file:
+
+          * ax_cxx_compile_stdcxx_17.m4
+
 1.7.5 (2021-03-02)
 
         * Deduplicate PRETTY_FILES when using the default definition.
