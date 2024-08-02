@@ -147,7 +147,7 @@ find_archive() {
     for extension in ${*}; do
         local maybe_archive="${subdir}/${package}.${extension}"
 
-        verbose "  FIND     ${maybe_archive}"
+        verbose_progress "FIND" "${maybe_archive}"
 
         if [ -r "${maybe_archive}" ]; then
             archive="${maybe_archive}"
@@ -201,7 +201,7 @@ fetch_url_with_command() {
     if [ -x "${executable}" ]; then
         cd "${fetchdir}"
 
-            verbose "  `echo ${1} | tr '[[:lower:]]' '[[:upper:]]'`     ${url}"
+            verbose_progress "`echo ${1} | tr '[[:lower:]]' '[[:upper:]]'`" "${url}"
 
             ${*} "${url}"
 
@@ -259,7 +259,7 @@ fetch_package() {
     # If no archive was found, attempt to fetch it.
 
     if [ -z "${archive}" ]; then
-        verbose "  FETCH    ${url}"
+        verbose_progress "FETCH" "${url}"
 
         fetch_url "${fetchdir}" "${url}"
 
@@ -309,10 +309,10 @@ patch_directory() {
 
     shift 2
 
-    verbose "  PATCH    ${directory}"
+    verbose_progress "PATCH" "${directory}"
 
     for patch in "${*}"; do
-        verbose "  PATCH    ${patch}"
+        verbose_progress "PATCH" "${patch}"
 
         case $(file_extension "${patch}") in
 
@@ -393,7 +393,7 @@ build_package() {
     local archive
     local jobs
 
-    verbose "  CHECK    ${package}"
+    verbose_progress "CHECK" "${package}"
 
     archive="`find_versioned_or_nonverioned_archive ${archivedir} ${package} ${version} ${EXTENSIONS}`"
 
@@ -403,7 +403,8 @@ build_package() {
     fi
 
     if [ ! -d "${archivedir}/${fqpackage}" ]; then
-        verbose "  TAR      ${archive}"
+        verbose_progress "TAR" "${archive}"
+
         tar --directory "${archivedir}" -xf "${archive}" || exit ${?}
     fi
 
@@ -480,7 +481,7 @@ build_package() {
         CONFIGURE_FLAGS="--quiet"
     fi
 
-    verbose "  CONFIG   ${package}"
+    verbose_progress "CONFIG" "${package}"
 
     cd "${builddir}"
 
@@ -492,15 +493,15 @@ build_package() {
 
     jobs=$(nthreads)
 
-    verbose "  JOBS     ${jobs}"
+    verbose_progress "JOBS" "${jobs}"
 
-    verbose "  MAKE     ${package}"
+    verbose_progress "MAKE" "${package}"
 
     make -j ${jobs} V=${VERBOSE} -C "${builddir}" all || exit ${?}
 
     # Install / stage the package
 
-    verbose "  INSTALL  ${package}"
+    verbose_progress "INSTALL  ${package}"
 
     make -j ${jobs} V=${VERBOSE} -C "${builddir}" DESTDIR="${destdir}" install || exit ${?}
 
@@ -598,15 +599,17 @@ for package in ${PACKAGES}; do
     version="`cat ${SRCDIR}/${package}/${package}.version`"
     patchdir="${SRCDIR}/${package}/${package}.patches"
 
+    separator
+
     # Fetch, if necessary, the package from the canonical source location.
 
-    subbanner "  CHECK    ${package}"
+    verbose_progress "CHECK" "${package}"
 
     fetch_package "${SRCDIR}/${package}" "${BUILDDIR}" "${package}" "${version}" "${url}"
 
     # Build and install the package.
 
-    verbose "  MKDIR    ${BUILDDIR}/build/${ARCH}/${package}-${version}"
+    verbose_progress "MKDIR" "${BUILDDIR}/build/${ARCH}/${package}-${version}"
 
     mkdir -p "${BUILDDIR}/build/${ARCH}/${package}-${version}" || exit ${?}
 
