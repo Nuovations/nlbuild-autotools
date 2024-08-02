@@ -123,6 +123,7 @@ The nlbuild-autotools package is laid out as follows:
 | tools/host/x86_64-apple-darwin/      | Pre-built instances of GNU autotools for 64-bit Mac OS X (if installed).                 |
 | tools/host/x86_64-unknown-linux-gnu/ | Pre-built instances of GNU autotools for 64-bit Linux (if installed).                    |
 | tools/packages/                      | Qualified packages for GNU autotools.                                                    |
+
 ## Internal Package Dependencies and Repositories
 
 Your package may have dependencies on other packages that can either
