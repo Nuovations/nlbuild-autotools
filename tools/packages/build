@@ -425,6 +425,8 @@ build_package() {
         export PATH="${destdir}/bin:${PATH}"
     fi
 
+    verbose_progress "PATH" "${PATH}"
+
     export ACLOCAL=`which aclocal`
     export AUTOCONF="`which autoconf`"
     export AUTOHEADER="`which autoheader`"
@@ -432,6 +434,14 @@ build_package() {
     export AUTOMAKE="`which automake`"
     export LIBTOOLIZE="`which libtoolize || which glibtoolize`"
     export M4=`which m4`
+
+    verbose_progress "ACLOCAL" "${ACLOCAL}"
+    verbose_progress "AUTOCONF" "${AUTOCONF}"
+    verbose_progress "AUTOHEADER" "${AUTOHEADER}"
+    verbose_progress "AUTOM4TE" "${AUTOM4TE}"
+    verbose_progress "AUTOMAKE" "${AUTOMAKE}"
+    verbose_progress "LIBTOOLIZE" "${LIBTOOLIZE}"
+    verbose_progress "M4" "${M4}"
 
     # Establish, if necessary, some SDK-specific directories needed to
     # override various paths in GNU autotools that otherwise expect to be
@@ -441,11 +451,15 @@ build_package() {
         if [ -d "${destdir}/share/autoconf" ]; then
             export AC_MACRODIR="${destdir}/share/autoconf"
 
+            verbose_progress "AC_MACRODIR" "${AC_MACRODIR}"
+
             export autom4te_perllibdir="${destdir}/share/autoconf"
         fi
 
         if [ -d "${destdir}/share/automake-1.14" ]; then
             export PERL5LIB="${destdir}/share/automake-1.14:${PERL5LIB}"
+
+            verbose_progress "PERL5LIB   " "${PERL5LIB}"
         fi
     fi
 
