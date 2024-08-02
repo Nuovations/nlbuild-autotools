@@ -89,8 +89,6 @@ third_party/autoconf/test-driver
 tools/Makefile
 tools/packages/autoconf/autoconf.url
 tools/packages/autoconf/autoconf.version
-tools/packages/automake/automake.patches/automake-00.description
-tools/packages/automake/automake.patches/automake-00.patch
 tools/packages/automake/automake.url
 tools/packages/automake/automake.version
 tools/packages/build
