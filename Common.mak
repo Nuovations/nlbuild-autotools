@@ -42,7 +42,7 @@ SED                  ?= sed
 TAR                  ?= tar
 XZ                   ?= xz
 
-dist_tar_ARCHIVE      = $(TAR) -chof -
+dist_tar_ARCHIVE      = $(TAR) --format=posix -chof -
 
 dist_tgz_ARCHIVE      = $(dist_tar_ARCHIVE)
 dist_tgz_COMPRESS     = $(GZIP) --best -c
