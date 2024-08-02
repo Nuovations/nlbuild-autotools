@@ -98,8 +98,6 @@ tools/packages/libtool/libtool.url
 tools/packages/libtool/libtool.version
 tools/packages/m4/m4.url
 tools/packages/m4/m4.version
-tools/packages/make/make.patches/make-00.patch
-tools/packages/make/make.patches/make-00.url
 tools/packages/make/make.url
 tools/packages/make/make.version
 tools/packages/packages
