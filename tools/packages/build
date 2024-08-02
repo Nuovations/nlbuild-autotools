@@ -454,6 +454,12 @@ build_package() {
             verbose_progress "AC_MACRODIR" "${AC_MACRODIR}"
 
             export autom4te_perllibdir="${destdir}/share/autoconf"
+
+            if [ -f "${destdir}/share/autoconf/autoconf/trailer.m4" ]; then
+                export trailer_m4="${destdir}/share/autoconf/autoconf/trailer.m4"
+
+                verbose_progress "trailer_m4 " "${trailer_m4}"
+            fi
         fi
 
         if [ -d "${destdir}/share/automake-1.14" ]; then
