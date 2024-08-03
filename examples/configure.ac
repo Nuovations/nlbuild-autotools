@@ -335,7 +335,6 @@ AC_PATH_PROG([PKG_CONFIG],[pkg-config])
 # Check for headers
 #
 AC_HEADER_STDBOOL
-AC_HEADER_STDC
 
 AC_CHECK_HEADERS([stdint.h])
 AC_CHECK_HEADERS([string.h])
