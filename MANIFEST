@@ -1,4 +1,5 @@
 .default-version
+.github/workflows/build.yml
 .gitignore
 .travis.yml
 AUTHORS.md
