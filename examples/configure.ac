@@ -26,7 +26,7 @@
 #
 # Declare autoconf version requirements
 #
-AC_PREREQ([2.68])
+AC_PREREQ([2.72])
 
 #
 # Initialize autoconf for the package
