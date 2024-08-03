@@ -1,3 +1,21 @@
+1.7.7 (2024-08-02)
+
+        * Updated the autotools packages to the following versions:
+
+            Package	Version
+
+            autoconf	2.72
+            automake	1.17
+            coreutils	9.5
+            libtool	2.4.7
+            m4	        1.4.19
+            make	4.4.1
+
+        * Auxiliary build scripts / tools in third_party/autoconf are
+          updated from automake-1.17 and libtool-2.4.7.
+
+        * The example/configure.ac is updated for autoconf-2.72.
+
 1.7.6 (2024-08-02)
 
         * Updated the following autoconf archive M4 macro files:
