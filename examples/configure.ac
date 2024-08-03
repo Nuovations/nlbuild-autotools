@@ -288,7 +288,7 @@ AC_PATH_PROG([PKG_CONFIG],[pkg-config])
 # #
 #
 # if test "${nl_cv_build_tests}" = "yes"; then
-#     NL_WITH_PACKAGE(
+#     NL_WITH_REQUIRED_INTERNAL_PACKAGE(
 #         [Nlunit-test],
 #         [NLUNIT_TEST],
 #         [nlunit_test],
