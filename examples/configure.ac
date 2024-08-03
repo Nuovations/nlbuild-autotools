@@ -237,6 +237,11 @@ NL_ENABLE_OPTIMIZATION([yes])
 AM_CONDITIONAL([@PACKAGE_SHORT_UPPER@_BUILD_OPTIMIZED], [test "${nl_cv_build_optimized}" = "yes"])
 
 #
+# Treat Compiler Warnings as Errors
+#
+NL_ENABLE_WERROR([no])
+
+#
 # Tests
 #
 AC_MSG_NOTICE([checking whether to build tests])
