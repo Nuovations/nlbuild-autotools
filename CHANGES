@@ -1,3 +1,12 @@
+1.7.8 (2024-08-02)
+
+        * Added GitHub Workflow Action continuous integration (CI)
+          support.
+
+        * Addressed an issue in which
+          'automake/{pre/macros,post/rules}/foreigndeps.am' were not
+          included in the package distribution.
+
 1.7.7 (2024-08-02)
 
         * Updated the autotools packages to the following versions:
